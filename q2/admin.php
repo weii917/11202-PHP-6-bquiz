@@ -52,13 +52,16 @@ include_once "db.php";
                         <td>操作</td>
                     </tr>
                     <?php
-                    // 撈出'subject_id'=0地所有資料存進$ques
-                    // 逐筆顯示每一筆'subject_id'=0那一行
+                    // 撈出'subject_id'=0的所有資料存進$ques陣列
+                    // 逐筆顯示$ques 每一筆，依序放進列表位置
+                    //$ques二維陣列0->$que第一陣列 1->$que第二陣列
                     $ques = $Que->all(['subject_id' => 0]);                
                     foreach ($ques as $idx => $que) {
                     ?>
                         <tr>
+                            <!-- 因索引是0，為了方便顯示從1開始所以加1 -->
                             <td><?= $idx + 1; ?></td>
+                            <!-- 取得$que的['text'] 與 $que['id']取得屬於主題id知道刪除id-->
                             <td><?= $que['text']; ?></td>
                             <td><button class="btn btn-info">顯示</button>
                                 <button class="btn btn-success">編輯</button>

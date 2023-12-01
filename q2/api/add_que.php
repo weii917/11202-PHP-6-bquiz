@@ -10,7 +10,7 @@ $data['sh']=1;
 $Que->save($data);
 
 foreach($_POST['opt'] as $opt){
-    // 將陣列清空
+    // 將陣列清空，要存放選項的值，透過這個陣列用save傳進資料庫
     $data = [];
     $subject_id=$Que->find(['text'=>$_POST['subject']])['id'];
     $data['text']=$opt;
