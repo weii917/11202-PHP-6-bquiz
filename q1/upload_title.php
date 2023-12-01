@@ -6,6 +6,7 @@
             <td>標題區圖片:</td>
             <td><input type="file" name="img" id=""></td>
             <input type="hidden" name="id" value="<?=$_GET['id'];?>">
+            <!-- 從index.php按更新圖片，網址裡帶過來的id有id代表有圖片要更新 -->
         </tr>
     </table>
 <div class="text-center">

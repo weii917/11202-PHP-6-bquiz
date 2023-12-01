@@ -51,6 +51,7 @@ include_once "db.php";
                     <td><input type="text" name="text[]" id="" value="<?=$row['text'];?>" style="width:90%"></td>
                     <td><input type="radio" name="sh" id="" value="<?=$row['id'];?>" <?=($row['sh']==1)?'checked':'';?>></td>
                     <td><input type="checkbox" name="del[]" id="" value="<?=$row['id']?>"></td>
+                    <!-- 當他點下去會到 upload_title.php帶入id-->
                     <td><input class='btn btn-primary' type="button" value="更新圖片" onclick="op('#cover','#cvr','upload_title.php?id=<?=$row['id'];?>')"></td>
                     <input type="hidden" name="id[]" value="<?=$row['id']?>">
                 </tr>
