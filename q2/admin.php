@@ -16,12 +16,14 @@
         <fieldset>
             <legend>新增問卷</legend>
             <form action="add_que.php" method="post">
+                <!-- 主題 -->
                 <div class="d-flex">
                     <div class="col-3 bg-light p-2">問卷名稱</div>
                     <div class="col-6 p-2">
                         <input type="text" name="subject" id="">
                     </div>
                 </div>
+                <!-- 選項 -->
                 <div class="bg-light">
                     <div class="p-2">
                         <label for="">選項</label>
@@ -30,8 +32,8 @@
                     </div>
                 </div>
                 <div>
-                    <input type="button" value="新增">
-                    <input type="button" value="清空">
+                    <input type="submit" value="新增">
+                    <input type="reset" value="清空">
                 </div>
             </form>
         </fieldset>
