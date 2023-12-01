@@ -27,18 +27,19 @@ include_once "db.php";
                     <th>狀態</th>
                     <?php
                     // 撈出'subject_id'=0的所有資料存進$ques陣列
-                    // 逐筆顯示$ques 每一筆索引$idx，值$que陣列，依序用$que['資料表欄位']拿到值放進列表位置                
-                    $ques = $Que->all(['subject_id' => 0]);
+                    // 逐筆顯示$ques 每一筆索引$idx，值$que陣列，依序用$que['資料表欄位']拿到值放進列表位置             
+                    // 新增條件判斷sh=1才顯示   
+                    $ques = $Que->all(['subject_id' => 0,'sh'=>1]);
                     foreach ($ques as $idx => $que) {
                     ?>
                 <tr>
                     <!-- $que是那一行問題的一維陣列 所以可以取資料表裡的欄位裡的值-->
-                    <!-- 每一個題目選項id都是唯一的 -->
+                    <!-- 每一個題目及選項id都是唯一代表的 -->
                     <td><?= $idx + 1; ?></td>
                     <td><?= $que['text'] ?></td>
                     <td><?= $que['count'] ?></td>
                     <td><a class="btn btn-success" href="result.php?id=<?= $que['id'] ?>">投票結果</a></td>
-                    <!-- 將$que['id']放進網址傳到我要投票知道要投屬於哪個的id是問題-->
+                    <!-- 將$que['id']放進網址傳到我要投票知道要投屬於哪個問題的id-->
                     <td><a class="btn btn-info" href="vote.php?id=<?= $que['id'] ?>">我要投票</a></td>
                 </tr>
             <?php

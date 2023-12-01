@@ -26,7 +26,7 @@ include_once "db.php";
         <form action="./api/vote.php" method="post">
             <ul class="list-group col-6 mx-auto">
                 <?php  
-                // 找到所有符合subject_id的值是資料庫裡面的問題的id，依序找到那個問題的所有選項
+                // 找到所有符合subject_id的值是資料庫裡面的問題的id，依序找到那個問題的所有每一筆選項
                 $opts = $Que->all(['subject_id' => $_GET['id']]);
                 foreach ($opts as $idx => $opt) {
                 ?>

@@ -63,7 +63,7 @@ include_once "db.php";
                             <td><?= $idx + 1; ?></td>
                             <!-- 取得$que的['text'] 與 $que['id']取得屬於主題id知道刪除id-->
                             <td><?= $que['text']; ?></td>
-                            <td><a href=""></a><button class="btn btn-info">顯示</button>
+                            <td><a href="./api/show.php?id=<?= $que['id']; ?>" class="btn <?=($que['sh']==1)?'btn-info':'btn-secondary';?>"><?=($que['sh']==1)?'顯示':'隱藏';?></a>
                                 <button class="btn btn-success">編輯</button>
                                 <a href="./api/del.php?id=<?= $que['id']; ?>">
                                     <button class="btn btn-danger">刪除</button>
