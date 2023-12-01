@@ -16,6 +16,7 @@ include_once "db.php";
         <h1 class="text-center">問卷管理</h1>
     </header>
     <main class="container p-3">
+        <!-- 新增問卷位置 -->
         <fieldset>
             <legend>新增問卷</legend>
             <form action="./api/add_que.php" method="post">
@@ -40,7 +41,7 @@ include_once "db.php";
                 </div>
             </form>
         </fieldset>
-
+        <!-- 題目選項列表位置 -->
         <fieldset>
             <legend>問卷列表</legend>
             <div class="col-9 mx-auto">
@@ -51,11 +52,13 @@ include_once "db.php";
                         <td>操作</td>
                     </tr>
                     <?php
-                    $ques = $Que->all(['subject_id' => 0]);
+                    // 撈出'subject_id'=0地所有資料存進$ques
+                    // 逐筆顯示每一筆'subject_id'=0那一行
+                    $ques = $Que->all(['subject_id' => 0]);                
                     foreach ($ques as $idx => $que) {
                     ?>
                         <tr>
-                            <td><?= $idx+1;?></td>
+                            <td><?= $idx + 1; ?></td>
                             <td><?= $que['text']; ?></td>
                             <td><button class="btn btn-info">顯示</button>
                                 <button class="btn btn-success">編輯</button>
