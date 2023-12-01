@@ -19,19 +19,19 @@ include_once "db.php";
 
         <?php
         // 從index帶的id，$_GET['id']知道是哪一個資料庫裡面的問題
-        // 找到id那一行的陣列存進subject
+        // 找到那一行問題的陣列存進subject
         $subject = $Que->find($_GET['id']);
         ?>
-        <h2 class="text-center">目前位置：首頁 > 問卷投票 > <?= $subject['text']; ?></h2>
+        <h2 class="text-center"><?= $subject['text']; ?></h2>
         <form action="./api/vote.php" method="post">
             <ul class="list-group col-6 mx-auto">
-                <?php
-                // 從index帶的id，$_GET['id']知道是哪一個資料庫裡面的問題
-                // 找到所有subject_id的值是資料庫裡面的問題的id，依序找到那個問題的所有選項
+                <?php  
+                // 找到所有符合subject_id的值是資料庫裡面的問題的id，依序找到那個問題的所有選項
                 $opts = $Que->all(['subject_id' => $_GET['id']]);
                 foreach ($opts as $idx => $opt) {
                 ?>
                     <li class="list-group-item list-group-item-action">
+                        <!-- 會把opt選項的id存到post['opt']，知道是哪個選項的id被選擇到 -->
                         <input type="radio" name="opt" value="<?= $opt['id'] ?>" id="">
                         <?= $opt['text'] ?>
                     </li>
